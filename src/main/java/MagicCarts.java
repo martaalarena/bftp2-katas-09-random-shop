@@ -19,13 +19,20 @@ public class MagicCarts {
         if (product.getName().equals("Magic: The Gathering - Black Lotus")) {
             return BigDecimal.valueOf(40000.0);
         } else if (product.getName().startsWith("Magic: The Gathering")) {
-            if (product.getColor() != null && (product.getAge() != null && product.getAge() > 10)) {
+            if ((product.getColor() == "blue" || product.getColor() == "red")  && (product.getAge() != null && product.getAge() > 10)) {
                 return switch (product.getColor()) {
                     case "blue" -> BigDecimal.valueOf(2.5);
                     case "red" -> BigDecimal.valueOf(1.75);
                     default -> BigDecimal.valueOf(1.0);
                 };
-            } return switch (product.getColor()) {
+            } else if((product.getColor() == "black" || product.getColor() == "green") && (product.getAge() != null && product.getAge() > 20)) {
+                return switch (product.getColor()) {
+                    case "green" -> BigDecimal.valueOf(5.28);
+                    case "black" -> BigDecimal.valueOf(8.16);
+                    default -> BigDecimal.valueOf(1.0);
+                };
+            }
+                return switch (product.getColor()) {
                     case "blue" -> BigDecimal.valueOf(5.0);
                     case "red" -> BigDecimal.valueOf(3.5);
                     case "green" -> BigDecimal.valueOf(4.40);

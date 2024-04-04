@@ -103,16 +103,17 @@ public class MagicCartsTest {
         assertThat(magicCarts.getTotalPrice(), equalTo(1.75));
     }
 
-    
+
     @Test
-    @DisplayName("Las cartas verdes cuestan 1 pasados 10 años")
-    void calculateOldGreenCardPrice() {
+    @DisplayName("Las cartas verdes cuestan 20% más pasados 20 años")
+    void calculateOlderGreenCardPrice() {
         MagicCarts magicCarts = new MagicCarts();
 
-        Product product = new Product(null, 11, false, "green", null, "Magic: The Gathering - green", null);
+        Product product = new Product(null, 21, false, "green", null, "Magic: The Gathering - green", null);
 
         magicCarts.addProduct(product);
 
-        assertThat(magicCarts.getTotalPrice(), equalTo(1.0));
+        assertThat(magicCarts.getTotalPrice(), equalTo(5.28));
     }
+    
 }
