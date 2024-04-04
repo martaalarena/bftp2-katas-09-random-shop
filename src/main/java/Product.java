@@ -2,13 +2,13 @@ import java.math.BigDecimal;
 
 public class Product {
 
-    private Integer numberOfLegs;
-    private Integer age;
-    private boolean isStinky;
-    private String color;
-    private BigDecimal basePrice;
-    private String name;
-    private BigDecimal sellPrice;
+    public Integer numberOfLegs;
+    public Integer age;
+    public boolean isStinky;
+    public String color;
+    public BigDecimal basePrice;
+    public String name;
+    public BigDecimal sellPrice;
 
     public Product(Integer numberOfLegs, Integer age, boolean isStinky, String color, BigDecimal basePrice, String name, BigDecimal sellPrice) {
         this.numberOfLegs = numberOfLegs;
