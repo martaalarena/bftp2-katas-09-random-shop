@@ -11,7 +11,7 @@ public class ShoppingCart {
     }
 
     public Double getTotalPrice() {
-        return  products.stream()
+        return products.stream()
                 .map(this::calculatePrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
                 .doubleValue();
@@ -22,7 +22,7 @@ public class ShoppingCart {
             return BigDecimal.valueOf(4.2 * product.getNumberOfLegs());
         } else if (product.getAge() != null) {
             if (product.isStinky()) {
-                return BigDecimal.valueOf(10.0* product.getAge());
+                return BigDecimal.valueOf(10.0 * product.getAge());
             } else {
                 return BigDecimal.valueOf(20.0 * product.getAge());
             }
@@ -35,13 +35,21 @@ public class ShoppingCart {
         } else if (product.getName().equals("Magic: The Gathering - Black Lotus")) {
             return BigDecimal.valueOf(40000.0);
         } else if (product.getName().startsWith("Magic: The Gathering")) {
-            return switch (product.getColor()) {
-                case "blue" -> BigDecimal.valueOf(5.0);
-                case "red" -> BigDecimal.valueOf(3.5);
-                case "green" -> BigDecimal.valueOf(4.40);
-                case "black" -> BigDecimal.valueOf(6.80);
-                default -> BigDecimal.valueOf(2.0);
-            };
+            if (product.getColor() != null && (product.getAge() != null && product.getAge() > 10)) {
+                return switch (product.getColor()) {
+                    case "blue" -> BigDecimal.valueOf(2.5);
+                    case "red" -> BigDecimal.valueOf(1.75);
+                    default -> BigDecimal.valueOf(1.0);
+                };
+            } else {
+                return switch (product.getColor()) {
+                    case "blue" -> BigDecimal.valueOf(5.0);
+                    case "red" -> BigDecimal.valueOf(3.5);
+                    case "green" -> BigDecimal.valueOf(4.40);
+                    case "black" -> BigDecimal.valueOf(6.80);
+                    default -> BigDecimal.valueOf(2.0);
+                };
+            }
         } else {
             return product.getSellPrice();
         }

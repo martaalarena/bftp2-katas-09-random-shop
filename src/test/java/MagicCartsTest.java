@@ -77,4 +77,17 @@ public class MagicCartsTest {
         assertThat(shoppingCart.getTotalPrice(), equalTo(40000.0));
     }
 
+    // @Test
+    // @DisplayName("Las cartas azules cuestan la mitad pasados 10 años")
+    // void calculateOldBlueCardPrice() {
+    //     ShoppingCart shoppingCart = new ShoppingCart();
+
+    //     Product product = new Product(null, 11, false, "red", null, "Magic: The Gathering - blue", null);
+
+    //     shoppingCart.addProduct(product);
+
+    //     assertThat(shoppingCart.getTotalPrice(), equalTo(2.5));
+    // }
+
+
 }
